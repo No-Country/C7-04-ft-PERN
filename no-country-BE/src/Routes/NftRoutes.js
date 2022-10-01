@@ -4,7 +4,7 @@ const express = require("express");
 const routes = express.Router();
 const F = require("../Functions/Nfts");
 
-routes.get("/allNfts", F.getAllEvents);
+routes.get("/allNfts", F.getAllNfts);
 routes.get("/name/:Name", F.getNftByName);
 routes.get("/id/:ID", F.getNftById);
 
