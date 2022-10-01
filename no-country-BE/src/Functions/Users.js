@@ -1,51 +1,11 @@
 require("dotenv").config();
 const { Op } = require("sequelize");
 const { Nfts, Users, Supports, sequelize } = require("../db.js");
-
-const validateAdmin = (req, res, next) => {
-  try {
-    const accessToken = req.body.data ? req.body.data.token : req.body.token;
-
-    console.log(accessToken);
-    if (!accessToken) return res.status(400).send("User is not authenticated");
-    const validToken = jwt.verify(accessToken, process.env.PRIVATEKEY);
-
-    if (validToken) {
-      if (validToken.role == "Admin") {
-        req.authenticated = true;
-        console.log("aqui pasa");
-        return next();
-      } else {
-        return res.status(400).send("You can't access here");
-      }
-    }
-  } catch (error) {
-    res.status(400).json({ error });
-  }
-};
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const roleChange = async (req, res) => {
-  console.log(req.body.data.email);
-  try {
-    let coco = await Users.update(
-      {
-        Role: req.body.data.role,
-        isPartner: req.body.data.role == "Partner" ? true : false,
-      },
-      {
-        where: {
-          Email: req.body.data.email,
-        },
-      }
-    );
-    console.log(coco);
-    return res.send("Updated");
-  } catch (error) {
-    return res.status(400).send("an Error has ocurred");
-  }
-};
+const { auth } = require("../firebase");
+const {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} = require("firebase/auth");
 
 const getAllUsers = async (req, res, next) => {
   res.send(
@@ -88,9 +48,7 @@ const getUserById = async (req, res) => {
       where: {
         ID,
       },
-      include: [{ model: Supports }, { model: Events }],
-
-      attributes: { exclude: ["Password", "Tokenn"] },
+      include: [{ model: Nfts }],
     });
     res.send(userBox);
   } catch (error) {
@@ -113,7 +71,7 @@ const registerUser = async (req, res) => {
   const { Username, Email } = req.body;
   let reGex = /\S+@\S+\.\S+/;
   let validateEmail = reGex.test(Email);
-  console.log(req.body);
+
   if (!Username) {
     return res.status(400).send("Please Provide an Username!!");
   } else if (!Email || !validateEmail) {
@@ -127,6 +85,7 @@ const registerUser = async (req, res) => {
       });
       console.log(foundOrCreate);
       if (!foundOrCreate[0]) {
+        createUserWithEmailAndPassword(auth, Email);
         Users.create(req.body);
         return res.send(`Created Succesfully`);
       } else {
@@ -139,9 +98,10 @@ const registerUser = async (req, res) => {
 };
 
 const loginRequest = async (req, res) => {
-  const { username, email } = req.body;
+  const { username, email, password } = req.body;
 
   try {
+    signInWithEmailAndPassword(auth, email, password);
     const user_ = await Users.findAll({
       where: {
         Username: username,
@@ -282,6 +242,11 @@ const updateFavourite = async (req, res) => {
   }
 };
 
+const logOut = (req, res) => {
+  signOut(auth);
+  res.send("User has sign out");
+};
+
 module.exports = {
   getAllUsers,
   getUserByName,
@@ -291,10 +256,9 @@ module.exports = {
   getPartnerCreatedEvents,
   loginRequest,
   registerUser,
-  validateAdmin,
   updateCart,
   updateHistory,
-  roleChange,
+  logOut,
   banUser,
   updateUser,
   updateFavourite,
