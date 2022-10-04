@@ -1,0 +1,35 @@
+.aside-nav {
+    width: 15%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 22px;
+    padding-block-start: 36px;
+    box-shadow: -7px 13px 14px 2px rgb(0 0 0 / 40%);
+    &--logo {
+        margin-block-end: 36px;
+    }
+    &--action-buttons {
+        display: flex;
+        gap: 24px;
+        margin-block-end: 50px;
+        & button {
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+    &--section {
+        margin-block-end: 24px;
+        font-weight: 400;
+        & h3 {
+            margin-block-end: 18px;
+            font-weight: 500;
+        }
+        & ul {
+            padding-inline-start: 10px;
+            & li {
+                margin-block-end: 20px;
+            }
+        }
+    }
+}
