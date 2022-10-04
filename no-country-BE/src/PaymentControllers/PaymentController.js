@@ -5,7 +5,7 @@ class PaymentController {
 
   async getPaymentLink(req, res) {
     try {
-      await this.subscriptionService.createPayment();
+      const payment = await this.subscriptionService.createPayment();
       return res.json(payment);
     } catch (error) {
       console.log(error);

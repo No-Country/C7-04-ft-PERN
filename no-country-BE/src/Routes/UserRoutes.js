@@ -33,5 +33,12 @@ routes.put("/updateHistory/:userID", updateHistory);
 routes.put("/updateFavourite/:userID", updateFavourite);
 routes.get("/logout", logOut);
 routes.delete("/delete", deleteUser); // ------------------Working
-
+routes.post("/payments", (req, res) => {
+  try {
+    const payment = paymentInstance.getPaymentLink(req, res);
+    res.json(payment);
+  } catch (error) {
+    console.log("hola");
+  }
+});
 module.exports = routes;

@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./Routes/0-Routes");
+require("dotenv").config();
 
 require("./db.js");
 
