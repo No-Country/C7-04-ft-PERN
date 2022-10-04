@@ -1,7 +1,7 @@
 
 export const mainAsideNavSections = [
     {
-        title: "Principal",
+        title: "Contenido",
         options: [
             { option_name: "Mercado", link: "/market" },
             { option_name: "Subastas activas", link: "/active-auctions" },
