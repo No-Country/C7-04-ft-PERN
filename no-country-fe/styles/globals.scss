@@ -21,4 +21,12 @@ ul, li {
   list-style: none;
 }
 
+.main {
+  display: grid;
+  width: 100%;
+  grid-template-columns: .25fr 1fr;
+}
+
 @import './components/utils/AsideNav';
+@import './components/utils/Header';
+@import './components/utils/HeaderCategorys.scss';
