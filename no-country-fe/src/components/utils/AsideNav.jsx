@@ -6,16 +6,16 @@ import LogoBrand from 'public/images/brand-logo.png';
 
 const AsideNav = ({ sections }) => {
   return (
-    <aside className='aside-nav'>
-      <div className='aside-nav--logo'>
+    <aside classNameName='aside-nav'>
+      <div classNameName='aside-nav--logo'>
         <Image src={LogoBrand}/>
       </div>
-      <div className='aside-nav--action-buttons'>
+      <div classNameName='aside-nav--action-buttons'>
         <button type='button'>Comprar</button>
         <button type='button'>Vender</button>
       </div>
       {sections.map(section => (
-        <div key={section.title} className={`${section.title}--aside__section aside-nav--section`}>
+        <div key={section.title} classNameName={`${section.title}--aside__section aside-nav--section`}>
           <h3>{section.title}</h3>
           <ul>
             {section.options.map(option => (
