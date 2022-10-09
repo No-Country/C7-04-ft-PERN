@@ -1,11 +1,11 @@
 .aside-nav {
-    // width: 15%;
-    // height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding-inline-start: 22px;
     padding-block-start: 36px;
     box-shadow: -7px 13px 14px 2px rgb(0 0 0 / 40%);
+    grid-area: asidebar;
     &--logo {
         margin-block-end: 36px;
     }
@@ -23,12 +23,16 @@
         font-weight: 400;
         & h3 {
             margin-block-end: 18px;
-            font-weight: 500;
+            font-weight: 700;
         }
         & ul {
             padding-inline-start: 10px;
             & li {
                 margin-block-end: 20px;
+                font-weight: 500;
+                &:hover {
+                    color: rgb(38, 158, 209);
+                }
             }
         }
     }

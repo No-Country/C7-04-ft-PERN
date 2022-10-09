@@ -1,5 +1,5 @@
 
-export const headerCategorys = [
+export const headerCategories = [
     {
         title: "Todos",
     },

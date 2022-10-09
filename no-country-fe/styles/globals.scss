@@ -21,12 +21,15 @@ ul, li {
   list-style: none;
 }
 
-.main {
+.app {
   display: grid;
   width: 100%;
-  grid-template-columns: .25fr 1fr;
+  grid-template-columns: .16fr 1fr;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: "asidebar header"
+                       "asidebar content";
 }
 
 @import './components/utils/AsideNav';
 @import './components/utils/Header';
-@import './components/utils/HeaderCategorys.scss';
+@import './components/utils/HeaderCategories.scss';
