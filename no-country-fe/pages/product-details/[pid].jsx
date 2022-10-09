@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const { pid } = router.query;
 
   return (
-    <div>
+    <div className="product-details--page">
       <Header />
       <main>
         <p>500 Visualizaciones</p>
