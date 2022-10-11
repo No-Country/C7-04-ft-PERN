@@ -1,10 +1,10 @@
-import { headerCategorys } from 'helpers/header-categorys';
+import { headerCategories } from 'helpers/header-categories';
 
-const HeaderCategorys = () => {
+const HeaderCategories = () => {
   return (
-    <nav className='header-categorys'>
+    <nav className='header-categories'>
         <ul>
-            {headerCategorys.map(category => {
+            {headerCategories.map(category => {
                 return <li key={category.title}>{category.title}</li>
             })}
         </ul>
@@ -12,4 +12,4 @@ const HeaderCategorys = () => {
   )
 }
 
-export default HeaderCategorys
+export default HeaderCategories;
