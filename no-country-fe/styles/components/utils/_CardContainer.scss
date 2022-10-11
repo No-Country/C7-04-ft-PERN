@@ -1,0 +1,19 @@
+.card-container {
+  margin: 2rem 1rem 2rem 2rem;
+
+  &--title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--carrousel {
+    width: 90%;
+    height: 400px;
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    
+  }
+}

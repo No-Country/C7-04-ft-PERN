@@ -27,6 +27,13 @@ ul, li {
   grid-template-columns: .25fr 1fr;
 }
 
+.home {
+  position: relative;
+}
+
 @import './components/utils/AsideNav';
 @import './components/utils/Header';
 @import './components/utils/HeaderCategorys.scss';
+@import './components/utils/Banner';
+@import './components/utils/CardContainer';
+@import './components/utils/Card';
