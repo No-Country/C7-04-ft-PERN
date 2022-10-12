@@ -30,7 +30,14 @@ ul, li {
                        "asidebar content";
 }
 
+.home {
+  position: relative;
+}
+
 @import './components/utils/AsideNav';
 @import './components/utils/Header';
 @import './components/utils/HeaderCategories';
 @import './product-details';
+@import './components/utils/Banner';
+@import './components/utils/CardContainer';
+@import './components/utils/Card';
