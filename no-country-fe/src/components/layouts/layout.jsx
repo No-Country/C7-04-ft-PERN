@@ -1,4 +1,3 @@
-import React from "react";
 import AsideNav from "../utils/AsideNav";
 import Header from "../utils/Header";
 import HeaderCategories from "../utils/HeaderCategorys";
@@ -10,7 +9,7 @@ const Layout = ({ children }) => {
       <AsideNav sections={mainAsideNavSections} />
       <div>
         <Header />
-        <HeaderCategories />
+        {/* <HeaderCategories /> */}
       </div>
       <main className="app--content">
         {children}
