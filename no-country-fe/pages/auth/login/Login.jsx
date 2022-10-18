@@ -1,7 +1,47 @@
-const login = () => {
+import { useForm } from "react-hook-form";
+
+const Login = () => {
+  const { register, formState: { errors }, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
   return (
-    <div>login</div>
+    <div className="login-form">
+      <div className="login-form-head">
+        <h2>Inicia sesión</h2>
+        <p>¡Bienvenido al mercado NFT No-Coin!</p>  
+      </div>  
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="email">
+          <input 
+            type="text" 
+            name="email"
+            placeholder="Su Email"
+            {...register("email", {
+              required: true
+            })}
+          />
+          {errors.email?.type === 'required' && <p className="form-error">Ingrese su email</p>}
+        </label>
+        <label htmlFor="password">
+          <input 
+            type="password"
+            name="password" 
+            placeholder="Su contraseña"
+            {...register("password" ,{
+              required: true
+            })}
+          />
+          {errors.email?.type === 'required' && <p className="form-error">Ingrese su contraseña</p>}
+        </label>
+        <div className="login-form-foot">
+          <button>Iniciar sesión</button>
+        </div>
+      </form>
+    </div>
   )
 }
 
-export default login
+export default Login
