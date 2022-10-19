@@ -34,6 +34,11 @@ ul, li {
   position: relative;
 }
 
+.form-error {
+  color: red;
+  font-size: .6rem;
+}
+
 @import './components/utils/AsideNav';
 @import './components/utils/Header';
 @import './components/utils/HeaderCategories';
@@ -41,3 +46,10 @@ ul, li {
 @import './components/utils/Banner';
 @import './components/utils/CardContainer';
 @import './components/utils/Card';
+@import './components/utils/Collections';
+@import './components/utils/Auctions';
+@import './components/utils/NextReleases';
+@import './components/utils/Register';
+@import './components/utils/Login';
+
+@import './pages/LayoutAuth';
