@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Header = () => {
   return (
     <header className='header-nav'>
@@ -7,9 +5,9 @@ const Header = () => {
         <input type="text" placeholder='Buscar articulo'/>
       </div>
       <div className='header-nav--controls'> 
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" />
-          <span class="slide"></span>
+          <span className="slide"></span>
         </label>
         <button>Registro</button>
         <button>Inicar Sesión</button>

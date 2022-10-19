@@ -1,15 +1,14 @@
 .header-nav {
-    // width: 85%;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    grid-area: header;
+    margin-block-end: 24px;
     &--search {
         width: 60%;
         height: 100%;
         padding: 10px 0;
-
         & input {
             width: 90%;
             border: 1px solid gray;
@@ -19,23 +18,19 @@
             padding: 0 15px;
         }
     }
-
     &--controls {
         width: 40%;
         display: flex;
         justify-content: space-around;    
-
         & button {
             cursor: pointer;
         }
-
         & button:nth-child(4) {
             background: #4c50cd;
             border-radius: 5px;
             color: white;
             padding: 0 5px;
         }
-
         & .switch{
             position: relative;
             display: inline-block;
@@ -43,13 +38,11 @@
             height: 1.5rem;
             border-radius: 5px;
         }
-          
         & .switch input { 
             opacity: 0;
             width: 0;
             height: 0;  
         }
-          
         & .slide{
             position: absolute;
             cursor: pointer;
@@ -61,7 +54,6 @@
             transition: .4s;
             border-radius: 25px;
         }
-          
         & .slide:before {
             position: absolute;
             content: "";
@@ -73,11 +65,9 @@
             transition: .4s;
             border-radius: 25px;
         }
-          
         & input:checked + .slide {
             background-color: #444;
         }
-          
         & input:checked + .slide:before {
             transform: translateX(1.6rem);
         }

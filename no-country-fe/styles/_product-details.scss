@@ -1,0 +1,8 @@
+@import './components/produts/visualization-card';
+
+.product-details--page {
+    & main {
+        padding-block-start: 90px;
+        padding-inline: 35px;
+    }
+}
