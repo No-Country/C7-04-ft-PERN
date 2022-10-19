@@ -10,55 +10,26 @@ const Register = () => {
   }
 
   const onSubmit = ({ username, email, password}) => {
-    console.log(username, email, password);
-
-    /*
-    El codigo de esta peticion es sacado directamente de postman, donde si funciona perfectamente
-    */
-   
-    // const myHeaders = new Headers();
-    // // myHeaders.append("", "");
-    // myHeaders.append("Content-Type", "application/json");
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-      "username": "Beto",
-      "email": "beto.bogino2@gmail.com",
-      "password": "password123"
+      "username": username,
+      "email": email,
+      "password": password
     });
 
-    // const requestOptions = {
-    //   method: 'POST',
-    //   headers: myHeaders,
-    //   body: raw,
-    //   redirect: 'follow'
-    // };
-
-    // fetch("https://nft-market-place-no-country.herokuapp.com/api/v1/users", requestOptions)
-    //   .then(response => response.text())
-    //   .then(result => console.log(result))
-    //   .catch(error => console.log('error', error));
-
-     /**/
-    
-    /*
-    La siguiente es una api montada en heroku, que toma la peticion y la hace por ti, para evitar el problema de los CORS, lo cual no paso jaja
-    */
-    const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-
-    const yourUrl = 'https://nft-market-place-no-country.herokuapp.com/api/v1/users';
-      
-    fetch(corsAnywhere + yourUrl, {
+    const requestOptions = {
       method: 'POST',
+      headers: myHeaders,
       body: raw,
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      }),
-    })
+      redirect: 'follow'
+    };
 
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
+    fetch("https://nft-market-place-no-country.herokuapp.com/api/v1/users", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
   }
 
   return (
