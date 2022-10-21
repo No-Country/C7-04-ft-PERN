@@ -1,10 +1,14 @@
 import { useForm } from "react-hook-form";
+import { authLogin } from "src/services/auth";
 
 const Login = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data)
+    const login = authLogin(data)
+      .then(data => data.json())
+      .then(json => console.log(json))
+    // console.log(login.then(data => console.log(data)))
   }
 
   return (

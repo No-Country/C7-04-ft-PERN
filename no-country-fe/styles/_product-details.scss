@@ -3,6 +3,65 @@
 .product-details--page {
     & main {
         padding-block-start: 90px;
-        padding-inline: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        .product-visualization--card {
+            margin-block-end: 38px;
+        }
+        & .container {
+            max-width: 1150px;
+            & .graph-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-block-end: 60px;
+            }
+            & .graph {
+                min-width: 600px;
+                max-width: 800px;
+            }
+        }
+        & .description {
+            margin-block-end: 48px;
+            & h3 {
+                font-size: 26px;
+            }
+        }
+        & .rarity {
+            margin-block-end: 62px;
+            &-cards-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+            &-card {
+                background-color: #edeef5;
+                border: 1px solid #BFC6EC;
+                border-radius: 18px;
+                display: flex;
+                align-items: center;
+                padding: 14px;
+                font-weight: 500;
+                &__title {
+                    font-size: 20px;
+                }
+            }
+            &-percentage {
+                background-color: #BFC6EC;
+                border-radius: 12px;
+                padding-block: 10px;
+                padding-inline: 4px;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-inline-start: 10px;
+                font-weight: 700;
+                font-size: 22px;
+            }
+        }
     }
 }
